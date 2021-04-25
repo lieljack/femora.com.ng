@@ -1,0 +1,10 @@
+.text-shadow {
+  text-shadow: 5px 5px 37px #163103, 
+  -5px -5px 37px #3c8907;
+}
+
+.femora-text {
+  font-size: 15em;
+  /* letter-spacing: 10px; */
+  line-height: .7em;
+}
