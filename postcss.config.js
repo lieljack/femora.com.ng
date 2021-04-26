@@ -1,7 +1,21 @@
-// postcss.config.js
+const purgecss = require('@fullhuman/postcss-purgecss')
+const cssnano = require('cssnano')
+
 module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  }
+  plugins: [
+    require('tailwindcss'),
+    require('autoprefixer'),
+    cssnano({
+      preset: 'default'
+    }),
+    purgecss({
+      content: [
+        './index.html',
+        './layouts/**/*.html', 
+        './src/**/*.vue', 
+        './src/**/*.jsx'
+      ],
+      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+    })
+  ]
 }
